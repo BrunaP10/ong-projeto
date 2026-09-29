@@ -12,6 +12,13 @@ document.addEventListener("DOMContentLoaded", function () {
     const links = document.querySelectorAll("nav a");
     const conteudo = document.querySelector("#conteudo");
 
+    const menuToggle = document.querySelector("#menu-toggle");
+    const menuIcon = document.querySelector("#menu-icon");
+
+    menuToggle.addEventListener("change", function () {
+        menuIcon.setAttribute("aria-expanded", menuToggle.checked);
+    });
+
 
     links.forEach(function (link) {
 
