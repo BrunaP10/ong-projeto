@@ -1,0 +1,479 @@
+:root {
+    /* Cores */
+    --cor-primaria: #2E7D32;
+    --cor-destaque: #FFA726;
+    --cor-fundo: #F5F5F5;
+    --cor-superficie: #FFFFFF;
+    --cor-texto: #333333;
+    --cor-texto-secundario: #666666;
+    --cor-borda: #DDDDDD;
+
+    /* Cores auxiliares */
+    --cor-primaria-clara: #66BB6A;
+    --cor-destaque-clara: #FFE0B2;
+
+    /* Feedback */
+    --cor-erro: #D32F2F;
+    --cor-erro-fundo: #FFEBEE;
+    --cor-sucesso: #2E7D32;
+    --cor-sucesso-fundo: #E8F5E9;
+
+    /* Tipografia */
+    --fonte-pequena: 0.875rem;
+    --fonte-normal: 1rem;
+    --fonte-subtitulo: 1.25rem;
+    --fonte-titulo: 1.75rem;
+    --fonte-titulo-principal: 2.25rem;
+
+    /* Espaçamento */
+    --espaco-1: 0.25rem;
+    --espaco-2: 0.5rem;
+    --espaco-3: 1rem;
+    --espaco-4: 1.5rem;
+    --espaco-5: 2rem;
+    --espaco-6: 3rem;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    font-size: var(--fonte-normal);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Estilos para o cabeçalho */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--espaco-3);
+    background-color: var(--cor-superficie);
+    border-bottom: 5px solid var(--cor-primaria);
+}
+
+header img {
+    width: 70px;
+    height: auto;
+}
+
+header h1 {
+    font-size: var(--fonte-titulo-principal);
+    color: var(--cor-primaria);
+}
+
+nav ul {
+    display: flex;
+    gap: var(--espaco-4);
+    list-style: none;
+}
+
+nav a {
+    color: var(--cor-primaria);
+    text-decoration: none;
+    font-size: var(--fonte-normal);
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: var(--cor-destaque);
+}
+
+/* Banner */
+.banner {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Conteúdo principal */
+main {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: var(--espaco-5);
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: var(--espaco-6) var(--espaco-4);
+    flex: 1;
+}
+
+main section {
+    background-color: var(--cor-superficie);
+    padding: var(--espaco-4);
+    border: 1px solid var(--cor-borda);
+    border-radius: 8px;
+}
+
+main > section {
+    grid-column: 1 / -1;
+}
+
+main > h2,
+main > form {
+    grid-column: 1 / -1;
+}
+
+main h2 {
+    font-size: var(--fonte-titulo);
+    color: var(--cor-primaria);
+    margin-bottom: var(--espaco-3);
+}
+
+main p {
+    margin-bottom: var(--espaco-2);
+    color: var(--cor-texto-secundario);
+}
+
+/* Cards de contato */
+.contato-cards {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: var(--espaco-4);
+}
+
+.contato-card {
+    grid-column: span 4;
+    background-color: var(--cor-fundo);
+    padding: var(--espaco-4);
+    border: 1px solid var(--cor-borda);
+    border-radius: 8px;
+}
+
+.contato-card h3 {
+    color: var(--cor-primaria);
+    font-size: var(--fonte-subtitulo);
+    margin-bottom: var(--espaco-2);
+}
+
+/* Formulário */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--espaco-4);
+}
+
+fieldset {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--espaco-3);
+    border: 1px solid var(--cor-borda);
+    border-radius: 8px;
+    padding: var(--espaco-5);
+    background-color: var(--cor-superficie);
+}
+
+legend {
+    grid-column: 1 / -1;
+    color: var(--cor-primaria);
+    font-size: var(--fonte-subtitulo);
+    font-weight: bold;
+    padding: 0 var(--espaco-2);
+}
+
+fieldset label {
+    color: var(--cor-texto);
+    font-weight: bold;
+}
+
+fieldset input {
+    width: 100%;
+    padding: var(--espaco-2);
+    border: 1px solid var(--cor-borda);
+    border-radius: 6px;
+    font-size: var(--fonte-normal);
+}
+
+fieldset input:focus {
+    outline: none;
+    border-color: var(--cor-primaria);
+    box-shadow: 0 0 0 2px var(--cor-primaria-clara);
+}
+
+/* Feedback de erro */
+fieldset input:user-invalid {
+    border-color: var(--cor-erro);
+    background-color: var(--cor-erro-fundo);
+}
+
+.mensagem-erro {
+    display: none;
+    color: var(--cor-erro);
+    font-size: var(--fonte-pequena);
+    font-weight: bold;
+    grid-column: 1 / -1;
+}
+
+fieldset input:user-invalid + .mensagem-erro {
+    display: block;
+}
+
+/* Feedback de sucesso */
+.mensagem-sucesso {
+    display: none;
+    padding: var(--espaco-3);
+    border: 1px solid var(--cor-sucesso);
+    border-radius: 8px;
+    background-color: var(--cor-sucesso-fundo);
+    color: var(--cor-sucesso);
+    font-weight: bold;
+}
+
+.mensagem-sucesso.visivel {
+    display: block;
+}
+
+/* Botão */
+button {
+    padding: var(--espaco-2) var(--espaco-4);
+    border: 1px solid var(--cor-primaria);
+    border-radius: 6px;
+    background-color: var(--cor-superficie);
+    color: var(--cor-primaria);
+    font-size: var(--fonte-normal);
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: var(--cor-primaria);
+    color: var(--cor-superficie);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+button:focus {
+    outline: 2px solid var(--cor-destaque);
+    outline-offset: 2px;
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Rodapé */
+footer {
+    background-color: var(--cor-primaria);
+    color: var(--cor-superficie);
+    text-align: center;
+    padding: var(--espaco-4);
+    margin-top: var(--espaco-5);
+}
+
+footer p {
+    font-size: var(--fonte-pequena);
+}
+
+/* ========================================
+   RESPONSIVIDADE
+   ======================================== */
+
+/* Menu responsivo */
+
+#menu-toggle {
+    display: none;
+}
+
+.menu-icon {
+    display: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: var(--cor-primaria);
+}
+
+
+/* ========================================
+   1200px — Telas grandes
+   Mantém o layout de 12 colunas e reduz
+   o espaçamento lateral do conteúdo.
+   ======================================== */
+
+@media (max-width: 1200px) {
+
+    main {
+        padding-left: var(--espaco-4);
+        padding-right: var(--espaco-4);
+    }
+}
+
+
+/* ========================================
+   992px — Tablets e notebooks menores
+   Os cards de contato passam de 3 para
+   2 cards por linha.
+   ======================================== */
+
+@media (max-width: 992px) {
+
+    .contato-card {
+        grid-column: span 6;
+    }
+}
+
+
+/* ========================================
+   768px — Tablets
+   - Cabeçalho passa para coluna.
+   - Menu principal vira menu mobile.
+   - Cards passam para 1 por linha.
+   - Formulário passa de 2 para 1 coluna.
+   ======================================== */
+
+@media (max-width: 768px) {
+
+    /* Cabeçalho */
+
+    header {
+        flex-direction: column;
+        gap: var(--espaco-3);
+        text-align: center;
+    }
+
+    header img {
+        width: 60px;
+    }
+
+    header h1 {
+        font-size: var(--fonte-titulo);
+    }
+
+
+    /* Menu mobile */
+
+    nav {
+        position: relative;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+
+    nav ul {
+        display: flex;
+        position: absolute;
+        top: 100%;
+        right: 0;
+
+        flex-direction: column;
+        gap: var(--espaco-2);
+
+        background-color: var(--cor-superficie);
+        padding: var(--espaco-3);
+
+        border: 1px solid var(--cor-borda);
+        border-radius: 8px;
+
+        min-width: 150px;
+        z-index: 10;
+
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+
+        transition:
+            opacity 0.3s ease,
+            transform 0.3s ease;
+    }
+
+    #menu-toggle:checked ~ ul {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+
+    /* Conteúdo */
+
+    main {
+        padding: var(--espaco-4);
+    }
+
+
+    /* Cards de contato */
+
+    .contato-card {
+        grid-column: span 12;
+    }
+
+
+    /* Formulário */
+
+    fieldset {
+        grid-template-columns: 1fr;
+    }
+
+    legend {
+        grid-column: 1;
+    }
+}
+
+
+/* ========================================
+   576px — Celulares
+   - Reduz o espaçamento do conteúdo.
+   - Reduz o tamanho dos títulos.
+   - Reduz o espaçamento interno do formulário.
+   ======================================== */
+
+@media (max-width: 576px) {
+
+    main {
+        padding: var(--espaco-3);
+    }
+
+    main h2 {
+        font-size: var(--fonte-subtitulo);
+    }
+
+    fieldset {
+        padding: var(--espaco-3);
+    }
+
+    .banner {
+        width: 100%;
+    }
+}
+
+
+/* ========================================
+   400px — Celulares pequenos
+   - Reduz o padding do cabeçalho.
+   - Reduz o tamanho do título principal.
+   - Reduz o tamanho dos links do menu.
+   - Reduz o padding do conteúdo e dos cards.
+   ======================================== */
+
+@media (max-width: 400px) {
+
+    header {
+        padding: var(--espaco-2);
+    }
+
+    header h1 {
+        font-size: var(--fonte-subtitulo);
+    }
+
+    nav a {
+        font-size: var(--fonte-pequena);
+    }
+
+    main {
+        padding: var(--espaco-2);
+    }
+
+    .contato-card {
+        padding: var(--espaco-3);
+    }
+}
