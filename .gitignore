@@ -1,2 +1,5 @@
 node_modules/
 html/dist/
+.vscode/
+.DS_Store
+Thumbs.db
