@@ -1,0 +1,26 @@
+{
+  "name": "ong-projeto",
+  "version": "1.0.0",
+  "description": "Projeto acadêmico desenvolvido em HTML, CSS e JavaScript.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BrunaP10/ong-projeto.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/BrunaP10/ong-projeto/issues"
+  },
+  "homepage": "https://github.com/BrunaP10/ong-projeto#readme",
+  "devDependencies": {
+    "vite": "^8.3.1"
+  }
+}
